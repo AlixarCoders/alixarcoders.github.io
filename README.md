@@ -1,90 +1,43 @@
-# 🌐 AlixarCoders — Comunidad de Desarrolladores Web del [I.E.S. ALIXAR](https://iesalixar.org)
+# Astro Starter Kit: Minimal
 
-![Logo](assets/images/logo/logo.svg)
-![Unicornio](assets/images/logo/unicornio.png)
+```sh
+npm create astro@latest -- --template minimal
+```
 
-Bienvenido al repositorio oficial de **AlixarCoders**, la comunidad de Desarrolladores Web del **I.E.S. ALIXAR**. 
-Este proyecto reúne recursos, proyectos y buenas prácticas para aprender, construir y desplegar aplicaciones web de calidad.
-¡Somos Unicornios! ¡SOMOS FULL STACK WEB DEVELOPERS!
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
----
+## 🚀 Project Structure
 
-## 🚀 Tecnologías que usamos
+Inside of your Astro project, you'll see the following folders and files:
 
-- **Frontend:** Angular, React, Bootstrap, Tailwind, SASS  
-- **Backend:** Java (Spring Boot), PHP (Symfony), ExpressJS, Python (Django)  
-- **Bases de datos:** MongoDB, MariaDB  
-- **DevOps:** Docker, Kubernetes, Jenkins, Git  
-- **UI/UX:** Figma  
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
----
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## 📑 Contenidos de la web
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-### 🔝 Hero
-- Presentación de la comunidad: *Comunidad de Desarrolladores Web del I.E.S. ALIXAR*  
-- Enlaces destacados:
-  - [Repositorios en GitHub](https://github.com/AlixarCoders)  
-  - [Únete a nuestro LinkedIn](https://www.linkedin.com/company/tu-enlace)  
+Any static assets, like images, can be placed in the `public/` directory.
 
-### 📚 Recursos
-- **Padlet:** tablón visual con infografías y cheatsheets  
-- **YouTube:** canal de charlas, tutoriales y contenido de la comunidad  
+## 🧞 Commands
 
-### 📜 Decálogo
-Zona libre de *código espagueti* 🍝  
-1. ⚙️ Compilamos calidad  
-2. 🐞 Depuramos nuestro código  
-3. 🔤 Escribimos código limpio y legible  
-4. 🧅 Estructuramos el código en capas  
-5. 📄 Documentamos el código con JavaDoc  
-6. 🤖 Usamos la IA como ayuda, pero entendemos el código  
-7. 🧪 Realizamos Tests Unitarios  
-8. 🔐 Tenemos en cuenta la ciberseguridad desde el 0'  
-9. 🌐 Somos Full Stack Developers (front + back)  
-10. 🙌 Tu código habla por ti  
+All commands are run from the root of the project, from a terminal:
 
----
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 🖼️ Vista previa
+## 👀 Want to learn more?
 
-La web principal está construida con **Bootstrap 5.3**, soporta **modo claro/oscuro automático** y utiliza **Fira Code** como tipografía principal.
-
----
-
-## ⚙️ Cómo usar este repositorio
-
-1. Clona el proyecto:
-   ```bash
-   git clone https://github.com/AlixarCoders/alixarcoders.github.io
-   cd alixarcoders.github.io
-   ```
-
-2. Estructura básica:
-   ```
-   ├── index.html
-   ├── assets/
-   │   ├── css/styles.css
-   │   ├── js/main.js
-   │   ├── images/logo/logo.svg
-   │   └── og-image.png
-   ```
-
-3. Abre `index.html` en tu navegador.  
-   La web está preparada para GitHub Pages.
-
----
-
-## 👥 Comunidad
-
-- 📧 **Zona privada DAW2:** [Acceso restringido](https://sites.google.com/g.educaand.es/alixarcoders)  
-- 🧾 **Padlet:** [Tablón visual](https://padlet.com/profeantoniogabriel/alixarcoders)  
-- 🎥 **YouTube:** [Canal oficial](https://www.youtube.com/@alixarcoders)  
-- 💼 **LinkedIn:** [Página de la comunidad](https://www.linkedin.com/company/alixarcoders)  
-
----
-
-## 🛠️ Créditos
-
-Desarrollado por el **Departamento de Informática del I.E.S. ALIXAR**.  
----
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
