@@ -1,222 +1,130 @@
 ---
-import { Footer } from "../components/footer.astro";
-import { Navbar } from "../components/navbar.astro";
+import Layout from "../layouts/layout.astro";
+import BlogCard from "../components/blogCard.astro";
+
+//Datos
+const recursos=[{
+
+    title:"Tablón visual",
+    description:"Infografías, resúmenes y cheatsheets compartidos por la comunidad.",
+    link:"https://padlet.com/profeantoniogabriel/alixarcoders",
+    buttonText:"Abrir Padlet",
+    icon:"bi-grid-3x3-gap"
+
+},
+{
+    title: "Canal de YouTube",
+    description: "Tutoriales, charlas y grabaciones de la comunidad para aprender juntos.",
+    link: "https://www.youtube.com/@alixarcoders",
+    buttonText: "Visitar canal",
+    icon: "bi-youtube"
+}
+    
+];
+
+const decalogo=[
+    "⚙️ Compilamos calidad",
+    "🐞 Depuramos nuestro código",
+    "🔤 Escribimos código limpio y legible",
+    "🧅 Estructuramos el código en capas",
+    "📄 Documentamos el código con JavaDoc",
+    "🤖 Usamos la IA como ayuda, pero entendemos el código",
+    "🧪 Realizamos Tests Unitarios",
+    "🔐 Tenemos en cuenta la ciberseguridad desde el 0'",
+    "🌐 Somos Full Stack Developers (front + back)",
+    "🙌 Tu código habla por ti"
+]
+
 ---
-<!doctype html>
-<html lang="es" data-bs-theme="dark">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>AlixarCoders — Comunidad de Desarrolladores Web del I.E.S. ALIXAR</title>
-  <meta name="description" content="AlixarCoders: Comunidad de Desarrolladores Web del I.E.S. ALIXAR. ¡Somos Unicornios! ¡SOMOS FULL STACK WEB DEVELOPERS! Recursos, proyectos, cheatsheets, normas y enlaces a nuestros espacios." />
+<Layout>
+    <!-- Hero -->
+    <header class="py-5 bg-gradient-hero border-bottom">
+        <div class="container py-4">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <span class="badge rounded-pill bg-accent text-dark fw-semibold mb-3">
+                        Backend · Frontend · DevOps · Sec
+                    </span>
 
-  <!-- Canonical (URL pública del sitio) -->
-  <link rel="canonical" href="https://alixarcoders.github.io/" />
+                    <h1 class="display-5 fw-bold mb-2">
+                        Comunidad de Desarrolladores Web del I.E.S. ALIXAR
+                    </h1>
 
-  <!-- Estilos y fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://alixarcoders.github.io/assets/css/styles.css" rel="stylesheet" />
+                    <p class="lead fw-semibold text-primary mb-3">
+                        Aprende, construye y despliega con <span class="text-accent">AlixarCoders</span>
+                    </p>
 
-  <!-- Favicons (absolutos) -->
-  <link rel="icon" type="image/x-icon" href="https://alixarcoders.github.io/assets/images/logo/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://alixarcoders.github.io/assets/images/logo/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://alixarcoders.github.io/assets/images/logo/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://alixarcoders.github.io/assets/images/logo/apple-touch-icon.png">
+                    <p class="lead text-body-secondary mb-4">
+                        Repositorio central de la comunidad: cheatsheets, proyectos, estándares, eventos y enlaces a nuestros espacios (Github, LinkedIn, YouTube, Padlet,...).
+                    </p>
 
-  <!-- Open Graph (WhatsApp/LinkedIn/Facebook) -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="AlixarCoders">
-  <meta property="og:url" content="https://alixarcoders.github.io/">
-  <meta property="og:title" content="AlixarCoders — Comunidad de Desarrolladores Web del I.E.S. ALIXAR">
-  <meta property="og:description" content="Aprende, construye y despliega. Cheatsheets, proyectos y oportunidades. ¡Somos Unicornios! ¡SOMOS FULL STACK WEB DEVELOPERS! Recursos, proyectos, cheatsheets, normas y enlaces a nuestros espacios.">
-  <meta property="og:image" content="https://alixarcoders.github.io/assets/og-image.png?v=1">
-  <meta property="og:image:secure_url" content="https://alixarcoders.github.io/assets/og-image.png?v=1">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+                    <div class="d-flex flex-wrap gap-2">
+                        <a class="btn btn-primary btn-lg" href="https://github.com/AlixarCoders" target="_blank" rel="noopener">
+                            <i class="bi bi-github me-1"></i> Github
+                        </a>
+                        <a class="btn btn-outline-primary btn-lg" href="https://www.linkedin.com/company/alixarcoders" target="_blank" rel="noopener">
+                            <i class="bi bi-linkedin me-1"></i> Comunidad de Unicornios
+                        </a>
+                    </div>
 
-  <!-- Twitter Card (X) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AlixarCoders — Comunidad de Desarrolladores Web del I.E.S. ALIXAR">
-  <meta name="twitter:description" content="Aprende, construye y despliega. Cheatsheets, proyectos y oportunidades. ¡Somos Unicornios! ¡SOMOS FULL STACK WEB DEVELOPERS! Recursos, proyectos, cheatsheets, normas y enlaces a nuestros espacios.">
-  <meta name="twitter:image" content="https://alixarcoders.github.io/assets/og-image.png?v=1">
+                    <p class="lead fw-bold mt-4">
+                        <span class="text-accent">¡</span>
+                        <span class="text-ac-blue">Somos</span>
+                        <span class="text-ac-violet">Unicornios</span>
+                        <span class="text-accent">!</span>
+                        <br />                            
+                        <span class="text-accent">¡</span>
+                        <span class="text-ac-blue">SOMOS</span>
+                        <span class="text-ac-violet">FULL STACK</span>
+                        <span class="text-ac-blue">WEB DEVELOPERS</span>
+                        <span class="text-accent">!</span>
+                    </p>
+                </div>
 
-  <!-- Color de la UI del navegador -->
-  <meta name="theme-color" content="#0E1320" />
-</head>
-
-<body>
-  <!-- Navbar -->
-  <Navbar/>
-
-  <!-- Hero -->
-  <header class="py-5 bg-gradient-hero border-bottom">
-    <div class="container py-4">
-        <div class="row align-items-center g-4">
-        <div class="col-lg-7">
-            <span class="badge rounded-pill bg-accent text-dark fw-semibold mb-3">
-            Backend · Frontend · DevOps · Sec
-            </span>
-
-            <h1 class="display-5 fw-bold mb-2">
-            Comunidad de Desarrolladores Web del I.E.S. ALIXAR
-            </h1>
-
-            <p class="lead fw-semibold text-primary mb-3">
-            Aprende, construye y despliega con <span class="text-accent">AlixarCoders</span>
-            </p>
-
-            <p class="lead text-body-secondary mb-4">
-            Repositorio central de la comunidad: cheatsheets, proyectos, estándares, eventos y enlaces a nuestros espacios (Github, LinkedIn, YouTube, Padlet,...).
-            </p>
-
-            <div class="d-flex flex-wrap gap-2">
-            <a class="btn btn-primary btn-lg" href="https://github.com/AlixarCoders" target="_blank" rel="noopener">
-                <i class="bi bi-github me-1"></i> Github
-            </a>
-            <a class="btn btn-outline-primary btn-lg" href="https://www.linkedin.com/company/alixarcoders" target="_blank" rel="noopener">
-                <i class="bi bi-linkedin me-1"></i> Comunidad de Unicornios
-            </a>
-            </div>
-
-            <p class="lead fw-bold mt-4">
-                <span class="text-accent">¡</span>
-                <span class="text-ac-blue">Somos</span>
-                <span class="text-ac-violet">Unicornios</span>
-                <span class="text-accent">!</span>
-                <br>
-                <span class="text-accent">¡</span>
-                <span class="text-ac-blue">SOMOS</span>
-                <span class="text-ac-violet">FULL STACK</span>
-                <span class="text-ac-blue">WEB DEVELOPERS</span>
-                <span class="text-accent">!</span>
-            </p>
-
-            <!-- Nube de tags (compacta en el header) -->
-            <div class="mt-4">
-            <div class="text-body-secondary small mb-2">Nuestro stack tecnológico</div>
-            <div class="d-flex flex-wrap gap-2">
-                <!-- Capa 1 — Lenguajes -->
-                <span class="badge rounded-pill bg-primary">Java</span>
-                <span class="badge rounded-pill bg-primary">JavaScript</span>
-                <span class="badge rounded-pill bg-primary">TypeScript</span>
-                <span class="badge rounded-pill bg-primary">Python</span>
-                <span class="badge rounded-pill bg-primary">PHP</span>
-
-                <!-- Capa 2 — Backend -->
-                <span class="badge rounded-pill bg-secondary">Spring Boot</span>
-                <span class="badge rounded-pill bg-secondary">Symfony</span>
-                <span class="badge rounded-pill bg-secondary">Django</span>
-                <span class="badge rounded-pill bg-secondary">ExpressJS</span>
-
-                <!-- Capa 3 — Frontend -->
-                <span class="badge rounded-pill bg-info text-dark">Angular</span>
-                <span class="badge rounded-pill bg-info text-dark">React</span>
-
-                <!-- Capa 4 — Estilos/UI -->
-                <span class="badge rounded-pill bg-warning text-dark">Bootstrap</span>
-                <span class="badge rounded-pill bg-warning text-dark">Tailwind CSS</span>
-                <span class="badge rounded-pill bg-warning text-dark">SASS</span>
-
-                <!-- Capa 5 — BBDD -->
-                <span class="badge rounded-pill bg-success">MongoDB</span>
-                <span class="badge rounded-pill bg-success">MariaDB</span>
-
-                <!-- Capa 6 — DevOps -->
-                <span class="badge rounded-pill bg-dark">Git</span>
-                <span class="badge rounded-pill bg-dark">Jenkins</span>
-                <span class="badge rounded-pill bg-dark">Docker</span>
-                <span class="badge rounded-pill bg-dark">Kubernetes</span>
-
-                <!-- Capa 7 — Diseño/UX -->
-                <span class="badge rounded-pill bg-danger">Figma</span>
-            </div>
-            </div>
-            <!-- /Nube de tags -->
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card shadow-sm overflow-hidden">
-            <div class="ratio ratio-4x3">
-                <img src="assets/images/logo/unicornio.png"
-                    alt="AlixarCoders unicornio"
-                    class="w-100 h-100 object-fit-contain">
-            </div>
+                <div class="col-lg-5">
+                    <div class="card shadow-sm overflow-hidden">
+                        <div class="ratio ratio-4x3">
+                            <img
+                            src="/images/logo/unicornio.png"
+                            alt="AlixarCoders unicornio"
+                            class="w-100 h-100 object-fit-contain"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-    </div>
     </header>
 
-
-
-  <!-- Recursos -->
-  <section id="recursos" class="py-5">
-    <div class="container">
-        <h2 class="h1 fw-bold mb-4">Recursos de la comunidad</h2>
-        <div class="row g-4">
-        
-        <!-- Padlet -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-            <div class="card-body">
-                <h3 class="h4">Tablón visual</h3>
-                <p class="text-body-secondary">
-                Infografías, resúmenes y cheatsheets compartidos por la comunidad.
-                </p>
-                <a class="btn btn-outline-secondary" href="https://padlet.com/profeantoniogabriel/alixarcoders" target="_blank" rel="noopener">
-                <i class="bi bi-grid-3x3-gap me-1"></i> Abrir Padlet
-                </a>
-            </div>
+    <!-- Sección Recursos / Blog -->
+    <section id="recursos" class="py-5">
+        <div class="container">
+            <h2 class="h1 fw-bold mb-4">Recursos de la comunidad</h2>
+            <div class="row g-4">
+                {recursos.map((item) => (
+                    <BlogCard
+                    title={item.title}
+                    description={item.description}
+                    link={item.link}
+                    buttonText={item.buttonText}
+                    icon={item.icon}
+                    />
+                ))}
             </div>
         </div>
-        
-        <!-- YouTube -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-            <div class="card-body">
-                <h3 class="h4">Canal de YouTube</h3>
-                <p class="text-body-secondary">
-                Tutoriales, charlas y grabaciones de la comunidad para aprender juntos.
-                </p>
-                <a class="btn btn-outline-secondary" href="https://www.youtube.com/@alixarcoders" target="_blank" rel="noopener">
-                <i class="bi bi-youtube me-1"></i> Visitar canal
-                </a>
-            </div>
-            </div>
+    </section>
+
+    <!-- Decálogo -->
+    <section id="normas" class="py-5 border-top">
+        <div class="container">
+            <h2 class="h1 fw-bold mb-2">Decálogo para 🌈 Unicornios de AlixarCoders</h2>
+            <p class="h4 text-accent mb-4">🍝 Zona libre de código spaghetti</p>
+            <ul class="list-group list-group-flush">
+                {decalogo.map((norma) => (
+                    <li class="list-group-item bg-transparent">{norma}</li>
+                ))}
+            </ul>
         </div>
-
-        </div>
-    </div>
-  </section>
-
-  <!-- Decálogo -->
-  <section id="normas" class="py-5 border-top">
-    <div class="container">
-        <h2 class="h1 fw-bold mb-2">Decálogo para 🌈 Unicornios de AlixarCoders</h2>
-        <p class="h4 text-accent mb-4">🍝 Zona libre de código spaghetti</p>
-        <ul class="list-group list-group-flush">
-        <li class="list-group-item bg-transparent">⚙️ <strong>Compilamos calidad</strong></li>
-        <li class="list-group-item bg-transparent">🐞 <strong>Depuramos nuestro código</strong></li>
-        <li class="list-group-item bg-transparent">🔤 <strong>Escribimos código limpio y legible</strong></li>
-        <li class="list-group-item bg-transparent">🧅 <strong>Estructuramos el código en capas</strong></li>
-        <li class="list-group-item bg-transparent">📄 <strong>Documentamos el código con JavaDoc</strong></li>
-        <li class="list-group-item bg-transparent">🤖 <strong>Usamos la IA como ayuda, pero entendemos el código</strong></li>
-        <li class="list-group-item bg-transparent">🧪 <strong>Realizamos Tests Unitarios</strong></li>
-        <li class="list-group-item bg-transparent">🔐 <strong>Tenemos en cuenta la ciberseguridad desde el 0'</strong></li>
-        <li class="list-group-item bg-transparent">🌐 <strong>Somos Full Stack Developers (front + back)</strong></li>
-        <li class="list-group-item bg-transparent">🙌 <strong>Tu código habla por ti</strong></li>
-        </ul>
-    </div>
-  </section>
-
-  <Footer />
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+    </section>
+</Layout>

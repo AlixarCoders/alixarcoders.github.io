@@ -1,0 +1,23 @@
+---
+interface Props{
+    title: string;
+    description: string;
+    link: string;
+    buttonText: string;
+    icon: string;
+}
+
+const {title, description, link, buttonText, icon,} = Astro.props;
+---
+
+<div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+        <div class="card-body">
+            <h3 class="h4">{title}</h3>
+            <p class="text-body-secondary">{description}</p>
+            <a class="btn btn-outline-secondary" href={link} target="_blank" rel="noopener">
+                <i class={`bi ${icon} me-1`}>{buttonText}</i>
+            </a>
+        </div>
+    </div>
+</div>
