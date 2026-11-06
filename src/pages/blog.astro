@@ -1,9 +1,54 @@
 ---
 import Layout from "../layouts/layout.astro";
-import BlogCard from "../components/blogCard.astro";
 
-//Datos
+//Datos para definir articulos o entradas al blog
 
-
+const entradas = [
+    {
+        titulo: "Nueva pagina de AlixarCoders",
+        fecha: "",
+        resumen: "Hemos migrado nuestra plataforma a Astro para mejorar drásticamente el rendimiento y la velocidad de carga.",
+        categoria: "Actualización",
+    },
+];
 ---
 
+<Layout title="AlixarCoders - Novedades y Blog">
+    <section class="py-5 bg-gradient-hero border-bottom">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold mb-2">Blog y Novedades</h1>
+            <p class="lead text-body-secondary">
+                Todas las noticias, avisos y actualizaciones de la comunidad.
+            </p>
+        </div>
+    </section>
+
+    <!-- Listado de artículos tipo blog -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                {
+                    entradas.map((post) => (
+                        <div class="col-md-6">
+                            <article class="card h-100 shadow-sm">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge bg-primary mb-2 align-self-start">
+                                        {post.categoria}
+                                    </span>
+                                    <h2 class="h4 card-title">{post.titulo}</h2>
+                                    <p class="text-muted small mb-2">
+                                        <i class="bi bi-calendar-event me-1" />{" "}
+                                        {post.fecha}
+                                    </p>
+                                    <p class="card-text text-body-secondary">
+                                        {post.resumen}
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</Layout>
