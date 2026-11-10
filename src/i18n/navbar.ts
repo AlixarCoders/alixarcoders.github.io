@@ -1,8 +1,18 @@
 export const navbar = {
     es: {
-        //navbar
+        novedades: 'Novedades',
+        linkedin: 'LinkedIn',
+        padlet: 'Padlet',
+        youtube: 'YouTube',
+        git: 'GitHub',
+        zona: 'Zona DAW'
     },
     en: {
-        //navbar
+        novedades: 'News',
+        linkedin: 'LinkedIn',
+        padlet: 'Padlet',
+        youtube: 'YouTube',
+        git: 'GitHub',
+        zona: 'DAW area'
     },
 };
