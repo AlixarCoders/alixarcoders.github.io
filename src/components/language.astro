@@ -1,3 +1,22 @@
+---
+// src/components/Navbar.astro (o Language.astro)
+import { getLangFromUrl } from "../i18n/utils";
+
+// Detectamos el idioma actual desde la URL
+const currentLang = getLangFromUrl(Astro.url);
+
+// Obtenemos la ruta limpia actual (ejemplo: "/blog" o "/en/blog")
+const pathname = Astro.url.pathname;
+
+// Limpiamos la ruta para obtener el path sin el prefijo "/en"
+const cleanPath =
+    currentLang === "en" ? pathname.replace(/^\/en/, "") || "/" : pathname;
+
+// Construimos las URLs dinámicas para cada idioma
+const urlEs = cleanPath;
+const urlEn = `/en${cleanPath === "/" ? "" : cleanPath}`;
+---
+
 <!-- Selector de Idioma -->
 <li class="nav-item dropdown">
     <a
@@ -7,14 +26,25 @@
         data-bs-toggle="dropdown"
         aria-expanded="false"
     >
-        <i class="bi bi-globe"></i> ES
+        <i class="bi bi-globe"></i>
+        {currentLang.toUpperCase()}
     </a>
     <ul class="dropdown-menu dropdown-menu-end">
         <li>
-            <a class="dropdown-item active" href="/"> 🇪🇸 Español </a>
+            <a
+                class={`dropdown-item ${currentLang === "es" ? "active" : ""}`}
+                href={urlEs}
+            >
+                🇪🇸 Español
+            </a>
         </li>
         <li>
-            <a class="dropdown-item" href="/en"> 🇬🇧 English </a>
+            <a
+                class={`dropdown-item ${currentLang === "en" ? "active" : ""}`}
+                href={urlEn}
+            >
+                🇬🇧 English
+            </a>
         </li>
     </ul>
 </li>

@@ -1,10 +1,21 @@
+---
+// src/components/socialLinks.astro
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// La ruta del blog cambia según el idioma
+const blogUrl = lang === 'en' ? '/en/blog' : '/blog';
+---
+
 <!-- Blog novedades -->
 <li class="nav-item">
     <a
         class="nav-link"
         href="/blog"
     >
-        <i class="bi bi-card-text me-1"></i>Novedades
+        <i class="bi bi-card-text me-1"></i>{t('novedades')}
     </a>
 </li>
 
@@ -16,7 +27,7 @@
         target="_blank"
         rel="noopener"
     >
-        <i class="bi bi-linkedin me-1"></i>LinkedIn
+        <i class="bi bi-linkedin me-1"></i>{t('linkedin')}
     </a>
 </li>
 
@@ -28,7 +39,7 @@
         target="_blank"
         rel="noopener"
     >
-        <i class="bi bi-grid-3x3-gap me-1"></i>Padlet
+        <i class="bi bi-grid-3x3-gap me-1"></i>{t('padlet')}
     </a>
 </li>
 
@@ -40,7 +51,7 @@
         target="_blank"
         rel="noopener"
     >
-        <i class="bi bi-youtube me-1"></i>YouTube
+        <i class="bi bi-youtube me-1"></i>{t('youtube')}
     </a>
 </li>
 
@@ -52,7 +63,7 @@
         target="_blank"
         rel="noopener"
     >
-        <i class="bi bi-github me-1"></i>Github
+        <i class="bi bi-github me-1"></i>{t('git')}
     </a>
 </li>
 
@@ -64,6 +75,6 @@
         target="_blank"
         rel="noopener"
     >
-        <i class="bi bi-lock-fill me-1"></i>Zona DAW
+        <i class="bi bi-lock-fill me-1"></i>{t('zona')}
     </a>
 </li>

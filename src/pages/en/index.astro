@@ -1,0 +1,122 @@
+---
+import Layout from "../../layouts/layout.astro";
+import BlogCard from "../../components/blogCard.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+// 1. Detectar idioma y obtener función de traducción
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// 2. Datos dinámicos combinando enlaces estáticos + textos traducidos
+const recursos = [
+    {
+        title: t('recurso1Title') as string,
+        description: t('recurso1Desc') as string,
+        link: "https://padlet.com/profeantoniogabriel/alixarcoders",
+        buttonText: t('recurso1Btn') as string,
+        icon: "bi-grid-3x3-gap"
+    },
+    {
+        title: t('recurso2Title') as string,
+        description: t('recurso2Desc') as string,
+        link: "https://www.youtube.com/@alixarcoders",
+        buttonText: t('recurso2Btn') as string,
+        icon: "bi-youtube"
+    }
+];
+
+// 3. Obtener el decálogo traducido
+const decalogo = t('decalogoItems') as string[];
+---
+
+<Layout>
+    <!-- Hero -->
+    <header class="py-5 bg-gradient-hero border-bottom">
+        <div class="container py-4">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <span class="badge rounded-pill bg-accent text-dark fw-semibold mb-3">
+                        Backend · Frontend · DevOps · Sec
+                    </span>
+
+                    <h1 class="display-5 fw-bold mb-2">
+                        {t("titulo1")}
+                    </h1>
+
+                    <p class="lead fw-semibold text-primary mb-3">
+                        {t("subtitulo1")} <span class="text-accent">AlixarCoders</span>
+                    </p>
+
+                    <p class="lead text-body-secondary mb-4">
+                        {t("subtitulo2")}
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-2">
+                        <a class="btn btn-primary btn-lg" href="https://github.com/AlixarCoders" target="_blank" rel="noopener">
+                            <i class="bi bi-github me-1"></i> Github
+                        </a>
+                        <a class="btn btn-outline-primary btn-lg" href="https://www.linkedin.com/company/alixarcoders" target="_blank" rel="noopener">
+                            <i class="bi bi-linkedin me-1"></i> {t("text")}
+                        </a>
+                    </div>
+
+                    <p class="lead fw-bold mt-4">
+                        <span class="text-accent">¡</span>
+                        <span class="text-ac-blue">Somos</span>
+                        <span class="text-ac-violet">Unicornios</span>
+                        <span class="text-accent">!</span>
+                        <br />            
+                        <span class="text-accent">¡</span>
+                        <span class="text-ac-blue">SOMOS</span>
+                        <span class="text-ac-violet">FULL STACK</span>
+                        <span class="text-ac-blue">WEB DEVELOPERS</span>
+                        <span class="text-accent">!</span>
+                    </p>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="card shadow-sm overflow-hidden">
+                        <div class="ratio ratio-4x3">
+                            <img
+                            src="/images/logo/unicornio.png"
+                            alt="AlixarCoders unicornio"
+                            class="w-100 h-100 object-fit-contain"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Recursos / Blog -->
+    <section id="recursos" class="py-5">
+        <div class="container">
+            <h2 class="h1 fw-bold mb-4">{t('recursosTitle')}</h2>
+            <div class="row g-4">
+                {recursos.map((item) => (
+                    <BlogCard
+                    title={item.title}
+                    description={item.description}
+                    link={item.link}
+                    buttonText={item.buttonText}
+                    icon={item.icon}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Decálogo -->
+    <section id="normas" class="py-5 border-top">
+        <div class="container">
+            <h2 class="h1 fw-bold mb-2">{t('decalogoTitle')}</h2>
+            <p class="h4 text-accent mb-4">{t('decalogoSubtitle')}</p>
+            <ul class="list-group list-group-flush">
+                {decalogo.map((norma) => (
+                    <li class="list-group-item bg-transparent">{norma}</li>
+                ))}
+            </ul>
+        </div>
+    </section>
+</Layout>

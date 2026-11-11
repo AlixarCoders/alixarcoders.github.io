@@ -1,29 +1,20 @@
 ---
 import Layout from "../layouts/layout.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
-//Datos para definir articulos o entradas al blog
-
-const entradas = [
-    {
-        titulo: "Nueva pagina de AlixarCoders",
-        fecha: "",
-        resumen: "Hemos migrado nuestra plataforma a Astro para mejorar drásticamente el rendimiento y la velocidad de carga.",
-        categoria: "Actualización",
-    },
-];
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const entradas = t("entradas") as any[];
 ---
 
-<Layout title="AlixarCoders - Novedades y Blog">
+<Layout title="AlixarCoders — Novedades y Blog">
     <section class="py-5 bg-gradient-hero border-bottom">
         <div class="container text-center">
-            <h1 class="display-5 fw-bold mb-2">Blog y Novedades</h1>
-            <p class="lead text-body-secondary">
-                Todas las noticias, avisos y actualizaciones de la comunidad.
-            </p>
+            <h1 class="display-5 fw-bold mb-2">{t("layoutTitle")}</h1>
+            <p class="lead text-body-secondary">{t("subtitulo")}</p>
         </div>
     </section>
 
-    <!-- Listado de artículos tipo blog -->
     <section class="py-5">
         <div class="container">
             <div class="row g-4">

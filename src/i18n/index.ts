@@ -1,5 +1,11 @@
 export const index = {
     es: {
+        titulo1: "Comunidad de Desarrolladores Web del I.E.S. ALIXAR",
+        subtitulo1: "Aprende, construye y despliega con",
+        subtitulo2: "Repositorio central de la comunidad: cheatsheets, proyectos, estándares, eventos y enlaces a nuestros espacios (Github, LinkedIn, YouTube, Padlet,...).",
+
+        text: "Comunidad de Unicornios",
+
         recursosTitle: "Recursos de la comunidad",
         decalogoTitle: "Decálogo para 🌈 Unicornios de AlixarCoders",
         decalogoSubtitle: "🍝 Zona libre de código spaghetti",
@@ -28,6 +34,12 @@ export const index = {
         ]
     },
     en: {
+        titulo1: "Web Developers Community of I.E.S. ALIXAR",
+        subtitulo1: "Learn, build and deploy with",
+        subtitulo2: "Central community repository: cheatsheets, projects, standards, events, and links to our spaces (Github, LinkedIn, YouTube, Padlet,...).",
+
+        text: "Community of unicorns",
+
         recursosTitle: "Community Resources",
         decalogoTitle: "Decalogue for 🌈 AlixarCoders Unicorns",
         decalogoSubtitle: "🍝 Spaghetti code-free zone",

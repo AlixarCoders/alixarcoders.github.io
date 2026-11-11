@@ -2,13 +2,21 @@
 import Language from "./language.astro";
 import SocialLinks from "./socialLinks.astro";
 import Theme from "./theme.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+// Detectamos el idioma actual desde la URL (devuelve 'es' o 'en')
+const lang = getLangFromUrl(Astro.url);
+
+// Construimos la ruta base de inicio según el idioma
+const homeUrl = lang === 'en' ? '/en' : '/';
 ---
 
 <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary border-bottom">
     <div class="container">
+        <!-- El logo redirige a / o a /en según el idioma activo -->
         <a
             class="navbar-brand d-flex align-items-center gap-2 fw-bold"
-            href="/"
+            href={homeUrl}
         >
             <img
                 src="/images/logo/logo.svg"
@@ -35,7 +43,7 @@ import Theme from "./theme.astro";
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <!-- Links redes sociales -->
+                <!-- Links redes sociales y navegación interna traducida -->
                 <SocialLinks />
 
                 <!-- Theme switcher -->

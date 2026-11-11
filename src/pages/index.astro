@@ -1,40 +1,32 @@
 ---
 import Layout from "../layouts/layout.astro";
 import BlogCard from "../components/blogCard.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
-//Datos
-const recursos=[{
+// 1. Detectar idioma y obtener función de traducción
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
-    title:"Tablón visual",
-    description:"Infografías, resúmenes y cheatsheets compartidos por la comunidad.",
-    link:"https://padlet.com/profeantoniogabriel/alixarcoders",
-    buttonText:"Abrir Padlet",
-    icon:"bi-grid-3x3-gap"
-
-},
-{
-    title: "Canal de YouTube",
-    description: "Tutoriales, charlas y grabaciones de la comunidad para aprender juntos.",
-    link: "https://www.youtube.com/@alixarcoders",
-    buttonText: "Visitar canal",
-    icon: "bi-youtube"
-}
-    
+// 2. Datos dinámicos combinando enlaces estáticos + textos traducidos
+const recursos = [
+    {
+        title: t('recurso1Title') as string,
+        description: t('recurso1Desc') as string,
+        link: "https://padlet.com/profeantoniogabriel/alixarcoders",
+        buttonText: t('recurso1Btn') as string,
+        icon: "bi-grid-3x3-gap"
+    },
+    {
+        title: t('recurso2Title') as string,
+        description: t('recurso2Desc') as string,
+        link: "https://www.youtube.com/@alixarcoders",
+        buttonText: t('recurso2Btn') as string,
+        icon: "bi-youtube"
+    }
 ];
 
-const decalogo=[
-    "⚙️ Compilamos calidad",
-    "🐞 Depuramos nuestro código",
-    "🔤 Escribimos código limpio y legible",
-    "🧅 Estructuramos el código en capas",
-    "📄 Documentamos el código con JavaDoc",
-    "🤖 Usamos la IA como ayuda, pero entendemos el código",
-    "🧪 Realizamos Tests Unitarios",
-    "🔐 Tenemos en cuenta la ciberseguridad desde el 0'",
-    "🌐 Somos Full Stack Developers (front + back)",
-    "🙌 Tu código habla por ti"
-]
-
+// 3. Obtener el decálogo traducido
+const decalogo = t('decalogoItems') as string[];
 ---
 
 <Layout>
@@ -48,15 +40,15 @@ const decalogo=[
                     </span>
 
                     <h1 class="display-5 fw-bold mb-2">
-                        Comunidad de Desarrolladores Web del I.E.S. ALIXAR
+                        {t("titulo1")}
                     </h1>
 
                     <p class="lead fw-semibold text-primary mb-3">
-                        Aprende, construye y despliega con <span class="text-accent">AlixarCoders</span>
+                        {t("subtitulo1")} <span class="text-accent">AlixarCoders</span>
                     </p>
 
                     <p class="lead text-body-secondary mb-4">
-                        Repositorio central de la comunidad: cheatsheets, proyectos, estándares, eventos y enlaces a nuestros espacios (Github, LinkedIn, YouTube, Padlet,...).
+                        {t("subtitulo2")}
                     </p>
 
                     <div class="d-flex flex-wrap gap-2">
@@ -64,7 +56,7 @@ const decalogo=[
                             <i class="bi bi-github me-1"></i> Github
                         </a>
                         <a class="btn btn-outline-primary btn-lg" href="https://www.linkedin.com/company/alixarcoders" target="_blank" rel="noopener">
-                            <i class="bi bi-linkedin me-1"></i> Comunidad de Unicornios
+                            <i class="bi bi-linkedin me-1"></i> {t("text")}
                         </a>
                     </div>
 
@@ -73,7 +65,7 @@ const decalogo=[
                         <span class="text-ac-blue">Somos</span>
                         <span class="text-ac-violet">Unicornios</span>
                         <span class="text-accent">!</span>
-                        <br />                            
+                        <br />            
                         <span class="text-accent">¡</span>
                         <span class="text-ac-blue">SOMOS</span>
                         <span class="text-ac-violet">FULL STACK</span>
@@ -100,7 +92,7 @@ const decalogo=[
     <!-- Sección Recursos / Blog -->
     <section id="recursos" class="py-5">
         <div class="container">
-            <h2 class="h1 fw-bold mb-4">Recursos de la comunidad</h2>
+            <h2 class="h1 fw-bold mb-4">{t('recursosTitle')}</h2>
             <div class="row g-4">
                 {recursos.map((item) => (
                     <BlogCard
@@ -118,8 +110,8 @@ const decalogo=[
     <!-- Decálogo -->
     <section id="normas" class="py-5 border-top">
         <div class="container">
-            <h2 class="h1 fw-bold mb-2">Decálogo para 🌈 Unicornios de AlixarCoders</h2>
-            <p class="h4 text-accent mb-4">🍝 Zona libre de código spaghetti</p>
+            <h2 class="h1 fw-bold mb-2">{t('decalogoTitle')}</h2>
+            <p class="h4 text-accent mb-4">{t('decalogoSubtitle')}</p>
             <ul class="list-group list-group-flush">
                 {decalogo.map((norma) => (
                     <li class="list-group-item bg-transparent">{norma}</li>
